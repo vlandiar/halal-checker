@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malaysia Halal Status Checker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="min-h-screen bg-gradient-to-br from-emerald-50 via-white to-teal-50">
+        <div class="container mx-auto px-4 py-8 max-w-4xl">
+            <!-- Header -->
+            <div class="text-center mb-8">
+                <div class="inline-block p-4 bg-emerald-600 rounded-full mb-4">
+                    <i class="fas fa-check-circle text-white text-4xl"></i>
+                </div>
+                <h1 class="text-4xl font-bold text-gray-800 mb-2">
+                    Malaysia Halal Status Checker
+                </h1>
+                <p class="text-gray-600">
+                    Search for halal certification status of restaurants, products, and companies
+                </p>
+                <p class="text-sm text-gray-500 mt-2">
+                    Powered by <span class="font-semibold">JAKIM Malaysia</span>
+                </p>
+            </div>
+
+            <!-- Search Form -->
+            <div class="bg-white rounded-2xl shadow-lg p-6 mb-8">
+                <div class="space-y-4">
+                    <div class="relative">
+                        <input
+                            type="text"
+                            id="searchInput"
+                            placeholder="Enter restaurant, product, or company name..."
+                            class="w-full px-6 py-4 text-lg border-2 border-gray-200 rounded-xl focus:outline-none focus:border-emerald-500 transition-colors"
+                        />
+                        <i class="fas fa-search absolute right-6 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                    </div>
+                    <button
+                        onclick="searchHalal()"
+                        class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-4 px-6 rounded-xl transition-colors flex items-center justify-center gap-2"
+                    >
+                        <i class="fas fa-search"></i>
+                        Check Halal Status on Official Portal
+                    </button>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="grid md:grid-cols-2 gap-4 mb-8">
+                <!-- Official Portal -->
+                <a href="https://myehalal.halal.gov.my/portal-halal/v1/index.php" target="_blank" 
+                   class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-all border-2 border-transparent hover:border-emerald-500">
+                    <div class="flex items-start gap-4">
+                        <div class="p-3 bg-emerald-100 rounded-lg">
+                            <i class="fas fa-globe text-emerald-600 text-2xl"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-bold text-gray-800 mb-1">Official Halal Portal</h3>
+                            <p class="text-sm text-gray-600 mb-2">Search directly on JAKIM's official website</p>
+                            <span class="text-xs text-emerald-600 font-semibold">myehalal.halal.gov.my →</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Verify Halal App -->
+                <div class="bg-white rounded-xl shadow-md p-6 border-2 border-gray-100">
+                    <div class="flex items-start gap-4">
+                        <div class="p-3 bg-blue-100 rounded-lg">
+                            <i class="fas fa-mobile-alt text-blue-600 text-2xl"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-bold text-gray-800 mb-1">Verify Halal App</h3>
+                            <p class="text-sm text-gray-600 mb-2">Download the official mobile app to scan barcodes</p>
+                            <div class="flex gap-2">
+                                <a href="https://play.google.com/store/apps/details?id=my.gov.islam.verifyhalal" target="_blank" 
+                                   class="text-xs text-blue-600 font-semibold hover:underline">
+                                    <i class="fab fa-google-play"></i> Android
+                                </a>
+                                <span class="text-gray-400">|</span>
+                                <a href="https://apps.apple.com/my/app/verify-halal/id1506588532" target="_blank" 
+                                   class="text-xs text-blue-600 font-semibold hover:underline">
+                                    <i class="fab fa-app-store-ios"></i> iOS
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- How to Check Guide -->
+            <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+                    <i class="fas fa-list-check text-emerald-600"></i>
+                    How to Check Halal Status
+                </h2>
+                
+                <div class="space-y-6">
+                    <!-- Method 1 -->
+                    <div class="border-l-4 border-emerald-500 pl-4">
+                        <h3 class="font-bold text-gray-800 mb-2">Method 1: Official Halal Portal (Web)</h3>
+                        <ol class="list-decimal list-inside space-y-2 text-gray-700">
+                            <li>Visit <a href="https://myehalal.halal.gov.my/portal-halal/v1/index.php" target="_blank" class="text-emerald-600 hover:underline font-semibold">myehalal.halal.gov.my</a></li>
+                            <li>Click on the search/verification section</li>
+                            <li>Enter the company, product, or restaurant name</li>
+                            <li>View the certification status and details</li>
+                        </ol>
+                    </div>
+
+                    <!-- Method 2 -->
+                    <div class="border-l-4 border-blue-500 pl-4">
+                        <h3 class="font-bold text-gray-800 mb-2">Method 2: Verify Halal Mobile App</h3>
+                        <ol class="list-decimal list-inside space-y-2 text-gray-700">
+                            <li>Download "Verify Halal" app from Google Play or App Store</li>
+                            <li>Open the app and tap the scan button</li>
+                            <li>Scan the product barcode or search by name</li>
+                            <li>Get instant verification from 60+ global certification bodies</li>
+                        </ol>
+                    </div>
+
+                    <!-- Method 3 -->
+                    <div class="border-l-4 border-purple-500 pl-4">
+                        <h3 class="font-bold text-gray-800 mb-2">Method 3: Look for Official Logo</h3>
+                        <p class="text-gray-700 mb-2">Check for the official Malaysia Halal Logo on products and premises:</p>
+                        <div class="bg-gray-50 rounded-lg p-4 flex items-center gap-3">
+                            <div class="w-16 h-16 bg-emerald-600 rounded-full flex items-center justify-center">
+                                <i class="fas fa-certificate text-white text-2xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-600">Green circular logo with crescent moon and star</p>
+                                <p class="text-xs text-gray-500 mt-1">Logo must include JAKIM or state religious authority name</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Popular Searches -->
+            <div class="bg-gradient-to-r from-emerald-50 to-teal-50 rounded-xl p-6 mb-8">
+                <h3 class="font-bold text-gray-800 mb-4 flex items-center gap-2">
+                    <i class="fas fa-fire text-orange-500"></i>
+                    Popular Searches
+                </h3>
+                <div class="flex flex-wrap gap-2">
+                    <button onclick="quickSearch('McDonald')" class="px-4 py-2 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow text-sm text-gray-700 hover:text-emerald-600">
+                        McDonald's
+                    </button>
+                    <button onclick="quickSearch('KFC')" class="px-4 py-2 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow text-sm text-gray-700 hover:text-emerald-600">
+                        KFC
+                    </button>
+                    <button onclick="quickSearch('Starbucks')" class="px-4 py-2 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow text-sm text-gray-700 hover:text-emerald-600">
+                        Starbucks
+                    </button>
+                    <button onclick="quickSearch('Secret Recipe')" class="px-4 py-2 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow text-sm text-gray-700 hover:text-emerald-600">
+                        Secret Recipe
+                    </button>
+                    <button onclick="quickSearch('Ayam Penyet')" class="px-4 py-2 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow text-sm text-gray-700 hover:text-emerald-600">
+                        Ayam Penyet
+                    </button>
+                    <button onclick="quickSearch('Maggi')" class="px-4 py-2 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow text-sm text-gray-700 hover:text-emerald-600">
+                        Maggi Products
+                    </button>
+                </div>
+            </div>
+
+            <!-- Important Notice -->
+            <div class="bg-yellow-50 border-l-4 border-yellow-500 rounded-lg p-6 mb-8">
+                <div class="flex items-start gap-3">
+                    <i class="fas fa-exclamation-triangle text-yellow-600 text-xl mt-1"></i>
+                    <div>
+                        <h3 class="font-bold text-gray-800 mb-2">Important Notice</h3>
+                        <p class="text-sm text-gray-700 mb-2">
+                            Due to technical limitations, this web app cannot directly access JAKIM's database. 
+                            For the most accurate and up-to-date halal certification status, please use one of the official methods listed above.
+                        </p>
+                        <p class="text-sm text-gray-600">
+                            This tool serves as a quick guide to help you access the official verification channels.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Info Section -->
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <h3 class="text-lg font-bold text-gray-800 mb-3 flex items-center gap-2">
+                    <i class="fas fa-info-circle text-emerald-600"></i>
+                    About Halal Certification in Malaysia
+                </h3>
+                <ul class="space-y-3 text-gray-700 text-sm">
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-check-circle text-emerald-600 mt-1 flex-shrink-0"></i>
+                        <span><strong>JAKIM</strong> (Jabatan Kemajuan Islam Malaysia) is the main authority for halal certification in Malaysia</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-check-circle text-emerald-600 mt-1 flex-shrink-0"></i>
+                        <span>Halal certificates have <strong>expiry dates</strong> - always verify current status</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-check-circle text-emerald-600 mt-1 flex-shrink-0"></i>
+                        <span>State Islamic Religious Councils (like MAIS, MAINPP) can also issue halal certificates</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-check-circle text-emerald-600 mt-1 flex-shrink-0"></i>
+                        <span>Products without certification are <strong>not necessarily haram</strong>, but certification provides assurance</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-check-circle text-emerald-600 mt-1 flex-shrink-0"></i>
+                        <span>For inquiries, contact JAKIM at <strong>03-8892 5000</strong> or <a href="mailto:pr_halal@islam.gov.my" class="text-emerald-600 hover:underline">pr_halal@islam.gov.my</a></span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Footer -->
+            <div class="text-center mt-8 text-sm text-gray-500">
+                <p>This is an unofficial guide tool. For official verification, always refer to JAKIM's official channels.</p>
+                <p class="mt-2">© 2024 Malaysia Halal Status Checker</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function searchHalal() {
+            const keyword = document.getElementById('searchInput').value.trim();
+            if (keyword) {
+                // Open official portal in new tab
+                window.open(`https://myehalal.halal.gov.my/portal-halal/v1/index.php`, '_blank');
+                
+                // Show helpful message
+                alert(`Opening the official JAKIM Halal Portal...\n\nPlease search for "${keyword}" on the portal page that just opened.`);
+            } else {
+                alert('Please enter a search keyword first.');
+            }
+        }
+
+        function quickSearch(keyword) {
+            document.getElementById('searchInput').value = keyword;
+            searchHalal();
+        }
+
+        // Allow Enter key to search
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchHalal();
+            }
+        });
+    </script>
+</body>
+</html>
